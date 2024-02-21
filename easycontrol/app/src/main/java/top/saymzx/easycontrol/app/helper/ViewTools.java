@@ -121,9 +121,9 @@ public class ViewTools {
   }
 
   // 创建设备参数设置页面
-  private static final String[] maxSizeList = new String[]{"2560", "1920", "1600", "1280", "1024", "800"};
-  private static final String[] maxFpsList = new String[]{"90", "60", "40", "30", "20", "10"};
-  private static final String[] maxVideoBitList = new String[]{"12", "8", "4", "2", "1"};
+  private static final String[] maxSizeList = new String[]{"2560", "1920", "1600", "1280", "1024", "800" ,"720","640","256"};
+  private static final String[] maxFpsList = new String[]{"90", "60", "45","40", "30", "20", "10","5","3","1","0"};
+  private static final String[] maxVideoBitList = new String[]{"12000", "8000", "4000", "2000", "1000","800","500","254","128","64"};
 
   public static void createDeviceOptionSet(Context context, ViewGroup fatherLayout, Device device) {
     // Device为null，则视为设置默认参数

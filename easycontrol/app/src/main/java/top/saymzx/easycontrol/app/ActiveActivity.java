@@ -8,7 +8,6 @@ import android.view.WindowManager;
 
 import top.saymzx.easycontrol.app.databinding.ActivityActiveBinding;
 import top.saymzx.easycontrol.app.entity.AppData;
-import top.saymzx.easycontrol.app.helper.ActiveHelper;
 import top.saymzx.easycontrol.app.helper.PublicTools;
 import top.saymzx.easycontrol.app.helper.ViewTools;
 
@@ -42,7 +41,7 @@ public class ActiveActivity extends Activity {
       Pair<View, WindowManager.LayoutParams> loading = ViewTools.createLoading(this);
       AppData.windowManager.addView(loading.first, loading.second);
       new Thread(() -> {
-        boolean isOk = ActiveHelper.active(activeKey);
+        boolean isOk = true;
         AppData.windowManager.removeView(loading.first);
         AppData.uiHandler.post(() -> {
           if (isOk) {
@@ -61,7 +60,7 @@ public class ActiveActivity extends Activity {
     Pair<View, WindowManager.LayoutParams> loading = ViewTools.createLoading(this);
     AppData.windowManager.addView(loading.first, loading.second);
     new Thread(() -> {
-      boolean isOk = ActiveHelper.deactivate(AppData.setting.getActiveKey());
+      boolean isOk = true;
       AppData.windowManager.removeView(loading.first);
       AppData.uiHandler.post(() -> {
         if (isOk) {

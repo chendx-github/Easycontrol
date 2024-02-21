@@ -106,7 +106,7 @@ public class ClientController implements TextureView.SurfaceTextureListener {
       else if (action.equals("runShell")) clientController.runShell(byteBuffer);
       else if (action.equals("setClipBoard")) clientController.setClipBoard(byteBuffer);
     } catch (Exception ignored) {
-      clientController.close(AppData.applicationContext.getString(R.string.error_stream_closed));
+      clientController.close(AppData.applicationContext.getString(R.string.error_stream_closed) + ignored.toString());
     }
   }
 

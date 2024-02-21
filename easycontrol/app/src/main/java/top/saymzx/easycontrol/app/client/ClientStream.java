@@ -42,7 +42,7 @@ public class ClientStream {
     // 超时
     Thread timeOutThread = new Thread(() -> {
       try {
-        Thread.sleep(10 * 1000);
+        Thread.sleep(20 * 1000);
         PublicTools.logToast("stream", AppData.applicationContext.getString(R.string.error_timeout), true);
         handle.run(false);
         if (connectThread != null) connectThread.interrupt();
@@ -93,10 +93,11 @@ public class ClientStream {
 
   // 连接Server
   private void connectServer(Pair<String, Integer> address) throws Exception {
-    Thread.sleep(50);
-    int reTry = 60;
+    Thread.sleep(300);
+    int reTry = 20;
+
+
     if (address != null) {
-      reTry /= 2;
       for (int i = 0; i < reTry; i++) {
         try {
           if (mainSocket == null) mainSocket = new Socket(address.first, 25166);
@@ -107,7 +108,7 @@ public class ClientStream {
           connectDirect = true;
           return;
         } catch (Exception ignored) {
-          Thread.sleep(50);
+          Thread.sleep(150);
         }
       }
     }
@@ -119,7 +120,7 @@ public class ClientStream {
         if (videoBufferStream == null) videoBufferStream = adb.tcpForward(25166);
         return;
       } catch (Exception ignored) {
-        Thread.sleep(50);
+        Thread.sleep(150);
       }
     }
     throw new Exception(AppData.applicationContext.getString(R.string.error_connect_server));

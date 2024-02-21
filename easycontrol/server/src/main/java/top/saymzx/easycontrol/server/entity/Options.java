@@ -29,7 +29,7 @@ public final class Options {
           maxFps = Integer.parseInt(value);
           break;
         case "maxVideoBit":
-          maxVideoBit = Integer.parseInt(value) * 1000000;
+          maxVideoBit = Integer.parseInt(value) * 1000;
           break;
         case "keepAwake":
           keepAwake = Integer.parseInt(value) == 1;
